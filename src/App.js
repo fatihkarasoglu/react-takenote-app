@@ -17,7 +17,7 @@ function App() {
   const location = useLocation();
 
   return (
-    <div className="min-w-full min-h-screen m-0 p-0 bg-[url('./images/background.png')] bg-cover bg-scroll bg-repeat">
+    <div className="min-w-full min-h-screen m-0 p-0 bg-zinc-800">
       <div className="min-w-min flex justify-center">
         <nav className="min-w-min mt-2 pl-10 pr-10 h-14 bg-black bg-opacity-50 text-white rounded-lg flex justify-between items-center">
           <NavLink to='/' 

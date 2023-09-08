@@ -1,7 +1,7 @@
 export default function Explore() {
     return(
         <div>
-            Explore Page
+            Explore page test
         </div>
     )
 }

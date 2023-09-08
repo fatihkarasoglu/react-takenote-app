@@ -1,7 +1,7 @@
 export default function Archive() {
     return(
         <div>
-            Archive Page
+            Archive page test
         </div>
     )
 }

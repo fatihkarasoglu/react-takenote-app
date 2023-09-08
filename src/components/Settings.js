@@ -1,7 +1,7 @@
 export default function Settings() {
     return(
         <div>
-            Setting Page
+            Settings page test
         </div>
     )
 }
