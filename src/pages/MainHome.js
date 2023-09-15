@@ -6,18 +6,17 @@ import Register from "./Register";
 export default function MainHome() {
 
     return(
-        <div className="flex min-h-screen justify-center items-center">
+        <div className="min-w-full min-h-screen grid justify-center">
 
-            <nav className="flex flex-col justify-center items-center text-xl">
-                <NavLink to="/login"  className="justify-center items-center text-center px-6 py-2 text-gray-100 transition-colors duration-150 bg-gray-700 rounded-lg focus:shadow-outline hover:bg-gray-800">Giriş Yap</NavLink>
-                <NavLink to="/register" className="justify-center items-center text-center px-6 py-2 mt-2 text-gray-100 transition-colors duration-150 bg-gray-700 rounded-lg focus:shadow-outline hover:bg-gray-800">Kayıt Ol</NavLink>
+            <nav className="justify-center text-xl mt-4">
+                <NavLink to="/login"  className="justify-center items-center text-center px-6 py-2 text-blue-500 rounded-lg border-2 border-blue-500 hover:bg-blue-500 hover:text-white">Giriş Yap</NavLink>
+                <NavLink to="/register" className="ml-4 justify-center items-center text-center px-6 py-2 mt-2 text-blue-500 rounded-lg border-2 border-blue-500 hover:bg-blue-500 hover:text-white">Ücretsiz hesap oluştur</NavLink>
             </nav>
 
             <Routes>
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
-
         </div>
     )
 }

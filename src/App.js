@@ -6,7 +6,7 @@ import MainHome from "./pages/MainHome";
 function App() {
 
   return (
-    <div className="min-w-full min-h-screen m-0 p-0 bg-gradient-to-br from-cyan-500 to-blue-600">
+    <div className="min-w-full min-h-screen m-0 p-0 bg-gradient-to-br">
       <Routes>
         <Route path="/*" element={<MainHome />} />
       </Routes>
