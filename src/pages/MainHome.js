@@ -14,7 +14,7 @@ export default function MainHome() {
             </nav>
 
             <Routes>
-                <Route path="/login" element={<Login />} />
+                <Route path="/login/*" element={<Login />} />
                 <Route path="/register" element={<Register />} />
             </Routes>
         </div>
