@@ -20,7 +20,7 @@ export default function Login() {
         ))
 
         if(user) {
-           navigate("/")
+           navigate("/profile")
         } else{
             console.error('Kullanıcı adı veya email ya da şifre hatalı!');
         }
@@ -46,7 +46,7 @@ export default function Login() {
                 Henüz bir hesabınız yok mu?
                 <NavLink to="/register" className="underline hover:text-blue-600 pl-2">Ücretsiz hesap Oluşturun</NavLink>
             </div>
-            
+            <NavLink to="/" className="underline hover:text-blue-600 pl-2">Ana sayfaya dön</NavLink>
         </div>
     )
 }

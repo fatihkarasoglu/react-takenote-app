@@ -31,7 +31,7 @@ export default function Register() {
         storage.get("user", users);
 
         if(username && email && password && confirmPassword) {
-            navigate("/");
+            navigate("/profile");
         }
     }
 
@@ -41,7 +41,7 @@ export default function Register() {
             <div className="flex flex-col justify-center items-center">
 
                 <div>
-                    <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} required name="username" autoComplete="false" placeholder="Kullanıcı adı" className="px-6 py-2 rounded-md border-2"/>
+                    <input type="text" props={username} value={username} onChange={(e) => setUsername(e.target.value)} required name="username" autoComplete="false" placeholder="Kullanıcı adı" className="px-6 py-2 rounded-md border-2"/>
                 </div>
                 <div className="mt-2">
                     <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required name="email" autoComplete="false" placeholder="Email adresi" className="px-6 py-2 rounded-md border-2"/>
