@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 
 import storage from "../data/localStorage";
 
-export default function Login() {
+export default function Login({ user }) {
 
     const [userLogin, setUserLogin] = useState("");
     const [passwordLogin, setPasswordLogin] = useState("");
@@ -20,7 +20,7 @@ export default function Login() {
         ))
 
         if(user) {
-           navigate("/profile")
+           navigate("/")
         } else{
             console.error('Kullanıcı adı veya email ya da şifre hatalı!');
         }

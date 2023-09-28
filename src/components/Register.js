@@ -31,7 +31,7 @@ export default function Register() {
         storage.get("user", users);
 
         if(username && email && password && confirmPassword) {
-            navigate("/profile");
+            navigate("/");
         }
     }
 
@@ -60,6 +60,7 @@ export default function Register() {
                 Zaten bir hesabınız var mı?
                 <NavLink to="/login" className="underline hover:text-blue-600 pl-2">Giriş yap</NavLink>
             </div>
+            <NavLink to="/" className="underline hover:text-blue-600 pl-2">Ana sayfaya dön</NavLink>
         </div>
     )
 }
