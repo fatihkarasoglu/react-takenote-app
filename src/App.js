@@ -1,6 +1,5 @@
 import { Routes, Route} from "react-router-dom";
 
-import { UserProvider } from "./context/UserContext";
 import Home from "./components/Home";
 import Archive from "./pages/Archive";
 import Explore from "./pages/Explore";
@@ -16,8 +15,6 @@ function App() {
 
   return (
       <div className="min-w-full min-h-screen flex flex-col items-center justify-center m-0 p-0">
-
-        <UserProvider>
           <Routes>
               <Route exact path="/" element={<HomeLayout />} >
                 <Route exact index={true} element={<Home />} />
@@ -30,7 +27,6 @@ function App() {
               <Route exact path="/register" element={<Register />} />
               <Route exact path="*" element={<Page404 />} />
           </Routes>
-        </UserProvider>
       </div>
   );
 }

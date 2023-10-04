@@ -1,20 +1,17 @@
 import { useUser } from "../context/UserContext"
-import { Navigate } from "react-router-dom";
 
 export default function Profile() {
 
-    const { user } = useUser();
+    const { logout } = useUser();
 
-    if(user) {
-        return <Navigate to="/profile" />
-    } else if (!user) {
-        return <Navigate to="/login" />
+    const logoutHandle = () => {
+        logout()
     }
 
     return(
         <div>
              Profile page test
-             Welcome {user}
+             <button type="button" onClick={logoutHandle} >Çıkış yap</button>
         </div>
     )
 }

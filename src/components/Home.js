@@ -1,14 +1,12 @@
 import { useState, useEffect } from "react";
 
-import storage from "../data/localStorage";
-
 export default function Home() {
 
     const [text, setText] = useState('');
     const [post, setPost] = useState([]);
 
     useEffect(() => {
-        const postFromLocalStorage = storage.get('post');
+        const postFromLocalStorage = localStorage.getItem('post');
         if (postFromLocalStorage) {
             try {
                 const parsedPost = JSON.parse(postFromLocalStorage);
@@ -25,7 +23,7 @@ export default function Home() {
 
         const newPost = {createdAt: new Date(), id: new Date().getTime(), text};
         const withNewPost = [...post, newPost];
-        storage.set('post', JSON.stringify(withNewPost));
+        localStorage.setItem('post', JSON.stringify(withNewPost));
 
         setPost(withNewPost);
         setText('');
@@ -33,7 +31,7 @@ export default function Home() {
 
     const deleteHandle = (id) => {
         const updatePost = post.filter((posts) => posts.id !== id);
-        storage.set('post', JSON.stringify(updatePost));
+        localStorage.setItem('post', JSON.stringify(updatePost));
         setPost(updatePost);
     }
 
