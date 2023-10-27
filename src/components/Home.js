@@ -1,9 +1,15 @@
 import { useState, useEffect } from "react";
+import { useUser } from "../context/UserContext";
+import { Navigate } from "react-router-dom";
+import { GrEdit } from "react-icons/gr";
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function Home() {
 
     const [text, setText] = useState('');
     const [post, setPost] = useState([]);
+
+    const { user } = useUser();
 
     useEffect(() => {
         const postFromLocalStorage = localStorage.getItem('post');
@@ -21,12 +27,17 @@ export default function Home() {
     const shareHandle = (e) => {
         e.preventDefault();
 
-        const newPost = {createdAt: new Date(), id: new Date().getTime(), text};
-        const withNewPost = [...post, newPost];
-        localStorage.setItem('post', JSON.stringify(withNewPost));
+        if(!user) {
+            alert('Lütfen giriş yapın!');
+            <Navigate to="/login" />
+        } else {
+            const newPost = {createdAt: new Date(), id: new Date().getTime(), text};
+            const withNewPost = [...post, newPost];
+            localStorage.setItem('post', JSON.stringify(withNewPost));
 
-        setPost(withNewPost);
-        setText('');
+            setPost(withNewPost);
+            setText('');
+        }
     }
 
     const deleteHandle = (id) => {
@@ -58,13 +69,13 @@ export default function Home() {
                 {post.map((item) => (
                     <li key={item.id} className="max-w-[90%] !break-words break-all mt-2 px-3 py-3 rounded-md border border-cyan-400 bg-cyan-300 bg-opacity-10">
                         {item.text}
-                            <button type="button" onClick={() => deleteHandle(item.id)} 
+                            <button title="Sil" type="button" onClick={() => deleteHandle(item.id)} 
                                 className="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900 z-10 ml-2">
-                                    Sil
+                                    <FaTrashAlt />
                             </button>
-                            <button type="button" onClick={editHandle}
+                            <button title="Düzenle" type="button" onClick={editHandle}
                                 className="text-gray-900 hover:text-white border border-gray-800 hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-gray-600 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-gray-800">
-                                    Düzenle
+                                    <GrEdit />
                             </button>
                     </li>
                 ))}
