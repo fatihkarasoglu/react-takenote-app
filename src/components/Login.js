@@ -12,7 +12,9 @@ export default function Login() {
 
     const navigate = useNavigate();
 
-    const loginHandle = () => {
+    const loginHandle = async (e) => {
+        e.preventDefault();
+
         const storedUsers = localStorage.getItem("user");
         
         if (!storedUsers) {
@@ -50,11 +52,13 @@ export default function Login() {
 
             <div className="flex flex-col justify-center items-center">
 
-                <div>
-                    <input type="email" placeholder="Kullanıcı adı ya da email" value={userLogin} onChange={(e) => setUserLogin(e.target.value)} required name="email" autoComplete="off" className="px-6 py-2 rounded-md border-2"/>
+                <div className="flex flex-col">
+                    <label htmlFor="email">Kullanıcı adı ya da email:</label>
+                    <input type="email" value={userLogin} onChange={(e) => setUserLogin(e.target.value)} required name="email" autoComplete="off" className="px-6 py-2 rounded-md border-2"/>
                 </div>
-                <div className="mt-2">
-                    <input type="password" placeholder="Şifre" value={passwordLogin} onChange={(e) => setPasswordLogin(e.target.value)} required name="password" autoComplete="off" className="px-6 py-2 rounded-md border-2"/>
+                <div className="mt-2 flex flex-col">
+                    <label htmlFor="password">Şifre:</label>
+                    <input type="password" value={passwordLogin} onChange={(e) => setPasswordLogin(e.target.value)} required name="password" className="px-6 py-2 rounded-md border-2"/>
                 </div>
                 <button type="button" onClick={loginHandle} className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Giriş yap</button>
                 <NavLink className="underline hover:text-blue-600">Şifreni mi Unuttun?</NavLink>

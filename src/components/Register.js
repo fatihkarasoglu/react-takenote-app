@@ -38,17 +38,21 @@ export default function Register() {
 
             <div className="flex flex-col justify-center items-center">
 
-                <div>
-                    <input type="text" props={username} value={username} onChange={(e) => setUsername(e.target.value)} required name="username" autoComplete="off" placeholder="Kullanıcı adı" className="px-6 py-2 rounded-md border-2"/>
+                <div className="flex flex-col">
+                    <label htmlFor="username">Kullanıcı adı:</label>
+                    <input type="text" props={username} value={username} onChange={(e) => setUsername(e.target.value)} required name="username" autoComplete="off" className="px-6 py-2 rounded-md border-2"/>
                 </div>
-                <div className="mt-2">
-                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required name="email" autoComplete="off" placeholder="Email adresi" className="px-6 py-2 rounded-md border-2"/>
+                <div className="mt-2 flex flex-col">
+                    <label htmlFor="email">E-mail:</label>
+                    <input type="text" value={email} onChange={(e) => setEmail(e.target.value)} required name="email" autoComplete="off" className="px-6 py-2 rounded-md border-2"/>
                 </div>
-                <div className="mt-2">
-                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required name="password" autoComplete="off" placeholder="Şifre" className="px-6 py-2 rounded-md border-2"/>
+                <div className="mt-2 flex flex-col">
+                    <label htmlFor="password">Şifre:</label>
+                    <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required name="password" className="px-6 py-2 rounded-md border-2"/>
                 </div>
-                <div className="mt-2">
-                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required name="confirm password" autoComplete="off" placeholder="Şifrenizi doğrulayın" className="px-6 py-2 rounded-md border-2"/>
+                <div className="mt-2 flex flex-col">
+                    <label htmlFor="confirm password">Şifreyi Tekrarla:</label>
+                    <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required name="confirm password" className="px-6 py-2 rounded-md border-2"/>
                 </div>
                 <button type="submit" onClick={registerHandle} className="px-6 py-2 mt-4 text-white bg-blue-600 rounded-lg hover:bg-blue-900">Kayıt Ol</button>
             
